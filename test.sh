@@ -1,7 +1,9 @@
 set -e
 set -x
 
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=On . && make
+mkdir -p build && cd build
+
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=On .. && make
 
 pvs-studio-analyzer analyze -R rules.pvsconfig -o PVS.log
 
